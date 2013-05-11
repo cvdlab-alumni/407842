@@ -99,6 +99,7 @@ def rotate(numRotation,objectToRotate):
     r = R([1,2])(angle)
     return STRUCT(NN(numRotation)([r,objectToRotate]))
 
+#ESERCIZIO 4
 domain = GRID([20])
 domain2 = GRID([20,20])
 roundDomain = INTERVALS(2*PI)(36)
@@ -125,8 +126,10 @@ circle = COLOR(YELLOW)(T(2)(1.099)(R([1,3])(PI/2)(PROD([annulusCircle(2*PI, 0.05
 steerRays = rotate(3,steerRay)
 
 steer = T(1)(-3)(T(2)(5)(T(3)(11)(STRUCT([steerTorus,steerTorusSmall,steerBlock,steerBolts,steerRays,circle]))))
-#VIEW(steer)
 
+
+
+#ESERCIZIO 3
 argento = Color4f([0.752941176,0.752941176, 0.752941176,1.0])
 grigio80 = Color4f([0.184313725,0.184313725, 0.184313725,1.0])
 
@@ -171,6 +174,7 @@ wheel2 = T(3)(14)(wheel1)
 wheel = STRUCT([wheel1,wheel2])
 
 
+#ESERCIZIO 2
 
 
 Bezier = BEZIER(S1)

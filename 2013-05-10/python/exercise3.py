@@ -98,6 +98,7 @@ def rotate(numRotation,objectToRotate):
     r = R([1,2])(angle)
     return STRUCT(NN(numRotation)([r,objectToRotate]))
 
+#ESERCIZIO 3
 domain = GRID([20])
 domain2 = GRID([20,20])
 roundDomain = INTERVALS(2*PI)(36)
@@ -145,6 +146,8 @@ wheel2 = T(3)(14)(wheel1)
 
 wheel = STRUCT([wheel1,wheel2])
 
+
+#ESERCIZIO 2
 Bezier = BEZIER(S1)
 
 
