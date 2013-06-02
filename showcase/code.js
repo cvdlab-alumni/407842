@@ -52,6 +52,7 @@ function cylinder(raggio,altezza,dominio){
 }
 
 
+
 var transparent = [1,1,1,0.1];
 var gold = [0.854901961,0.647058824,0.125490196];
 var ceruleo = [0,0.482352941,0.654901961];
@@ -81,7 +82,7 @@ var hourPointerDownLine1 = [[-0.3,0,0],[-0.1,-1.5,0],[0,0,0],[0,0,0]];
 var hourPointerDownLine2 = [[0.3,0,0],[0.1,-1.5,0],[0,0,0],[0,0,0]];
 var hourPointerDown = T([1,2])([-0.6,8.6])(COLOR(ceruleoScuro)(supHermite(hourPointerDownLine1,hourPointerDownLine2,[0,0,0],[0,0,0])));
 var hourPointerUp = T([1,2])([0.6,8.6])(STRUCT([hourPointerBase,hourPointerFinal]));
-var hourPointer = R([0,1])([1.52*PI])(STRUCT([hourPointerUp,hourCircle,hourPointerDown]));
+var hourPointer = R([0,1])([-PI/2])(STRUCT([hourPointerUp,hourCircle,hourPointerDown]));
 
 
 var minutePointerBaseLine1 = [[-0.3,0,0],[-0.35,5,0],[0,0,0],[0,0,0]];
@@ -95,7 +96,7 @@ var minutePointerDownLine1 = [[-0.3,0,0],[-0.1,-1.5,0],[0,0,0],[0,0,0]];
 var minutePointerDownLine2 = [[0.3,0,0],[0.1,-1.5,0],[0,0,0],[0,0,0]];
 var minutePointerDown = T([1,2])([-0.6,8.9])(COLOR(ceruleoScuro)(supHermite(minutePointerDownLine1,minutePointerDownLine2,[0,0,0],[0,0,0])));
 var minutePointerUp = T([1,2])([0.6,8.9])(STRUCT([minutePointerBase,minutePointerFinal]));
-var minutePointer = R([0,1])([-1.8*PI])(STRUCT([minutePointerUp,minuteCircle,minutePointerDown]));
+var minutePointer = R([0,1])([-PI])(STRUCT([minutePointerUp,minuteCircle,minutePointerDown]));
 
 
 var secondPointerBaseLine1 = [[-0.1,0,0],[-0.08,6.5,0],[0,0,0],[0,0,0]];
@@ -122,8 +123,8 @@ var alarmPointerDownLine2 = [[0.1,0,0],[0.1,-1.5,0],[0,0,0],[0,0,0]];
 var alarmPointerDown = T([1,2])([-0.6,8.7])(COLOR(pettirosso)(supHermite(alarmPointerDownLine1,alarmPointerDownLine2,[0,0,0],[0,0,0])));
 var alarmPointer = R([0,1])([0.75*PI])(STRUCT([alarmPointerUp,alarmCircle,alarmPointerDown]));
 
-var primarySign = rotate(4,COLOR(ceruleoScuro)(T([0,1,2])([-0.5,7.8,8.15])(CUBOID([1,1.5,0.5]))));
-var secondarySign = rotate(12,COLOR(ceruleoScuro)(T([0,1,2])([-0.5,7.8,8.1])(CUBOID([0.5,0.75,0.5]))));
+var primarySign = rotate(4,COLOR(gold)(T([0,1,2])([-0.5,7.8,8.15])(CUBOID([1,1.5,0.5]))));
+var secondarySign = rotate(12,COLOR(gold)(T([0,1,2])([-0.5,7.8,8.1])(CUBOID([0.5,0.75,0.5]))));
 var sign = STRUCT([primarySign,secondarySign]);
 
 
@@ -151,5 +152,44 @@ var bell = COLOR(ceruleo)(STRUCT([bellLeft,bellRight]));
 
 var table = COLOR(terra)(T([0,1,2])([-12,-11.8,-1])(R([1,2])(PI/2)(CUBOID([25,12,3]))));
 
-var model = STRUCT([table,crown,dial,closeDisk,glass,pointerBolt,hourPointer,minutePointer,secondPointer,alarmPointer,sign,
-	sphere,screw,bell]);
+function moveSecond() {
+setInterval(function () {  
+  secondPointer.rotate([0,1], -PI/32) 
+     
+
+       }, 1000)
+
+DRAW(secondPointer);
+
+ 
+}
+moveSecond();
+
+function moveMinute() {
+setInterval(function () {  
+  minutePointer.rotate([0,1], -PI/1920) 
+     
+
+       }, 1000)
+
+DRAW(minutePointer);
+
+ 
+}
+moveMinute();
+
+function moveHour() {
+setInterval(function () {  
+  hourPointer.rotate([0,1], -PI/115200) 
+     
+
+       }, 1000)
+
+DRAW(hourPointer);
+
+ 
+}
+moveHour();
+
+var model = STRUCT([table,crown,dial,closeDisk,glass,pointerBolt,alarmPointer,sign,sphere,screw,bell]);
+// DRAW(model);
