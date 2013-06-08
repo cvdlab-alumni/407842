@@ -85,9 +85,15 @@ function createHouse(x,y,z){
 
 //Create a human settlemets gived it's position (randomically assigned considering the terrain level)
 function createSettlement(x,y){
-
-  var houseModel1 = createHouse(0.12,0.17,0.13);
-  var houseModel2 = createHouse(0.12,0.17,0.13);
+  
+  var xRand = 0.04 * Math.random() + 0.1;
+  var xRand1 = 0.04 * Math.random() + 0.1;
+  var yRand = 0.02 * Math.random() + 0.1;
+  var yRand1 = 0.02 * Math.random() + 0.1;
+  var zRand = 0.1 * Math.random() + 0.1;
+  var zRand1 = 0.1 * Math.random() + 0.1;
+  var houseModel1 = createHouse(xRand,yRand,zRand);
+  var houseModel2 = createHouse(xRand1,yRand1,zRand1);
   var house1 = T([0,1])([x,y])(houseModel1);
   var house2 = T([0,1])([x,y+0.3])(houseModel2);
 
@@ -104,7 +110,7 @@ var base = COLOR(brown)(T([2])([-1.001])(CUBOID([9,4.5,1])));
 // first parameter: number of slopes to fill
 // second parameter: tree density in the slope 
 // third parameter: settlements density
-var mapping = terrainCreator(4,2,4); 
+var mapping = terrainCreator(4,2,2); 
 
 var model = COLOR(brown)(MAP(mapping)(domain));
 
