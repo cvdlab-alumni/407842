@@ -28,7 +28,7 @@ var terrainCreator = function (treeNumber,density,settlementNumber) {
       z = 0;
 
     //Create a forest in a mountain slope in function of density parameter and random criteria
-  	if((z > 0.17) && (z < 0.35) && (treeNumber > 0) && (x > 0) && (y > 0)){
+  	if((z > 0.17) && (z < 0.35) && (treeNumber > 0) && (x > 0) && (y > 0.4)){
   		
   		for(var i = 0; i < density; i++){
 
