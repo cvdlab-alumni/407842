@@ -85,9 +85,10 @@ function createHouse(x,y,z){
 
 //Create a human settlemets gived it's position (randomically assigned considering the terrain level)
 function createSettlement(x,y){
-
-  var houseModel1 = createHouse(0.12,0.17,0.13);
-  var houseModel2 = createHouse(0.12,0.17,0.13);
+  zRand = Math.random() * 0.5;
+  zRand1 = Math.random() * 0.5;
+  var houseModel1 = createHouse(0.12,0.17,zRand);
+  var houseModel2 = createHouse(0.12,0.17,zRand1);
   var house1 = T([0,1])([x,y])(houseModel1);
   var house2 = T([0,1])([x,y+0.3])(houseModel2);
 
