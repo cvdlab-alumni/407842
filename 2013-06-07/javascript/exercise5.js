@@ -127,7 +127,7 @@ var base = COLOR(brown)(T([2])([-1.001])(CUBOID([9,4.5,1])));
 // first parameter: number of slopes to fill
 // second parameter: tree density in the slope 
 // third parameter: settlements density
-var mapping = terrainCreator(5,2,4); 
+var mapping = terrainCreator(4,2,4); 
 var model = COLOR(brown)(MAP(mapping)(domain));
 
 var lake = T([0,1])([lakeTraslationX,lakeTraslationY])(COLOR(ceruleo)(CUBOID([2,1,0.01])));
