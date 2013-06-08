@@ -1,23 +1,26 @@
+//Export a Lar model into OBJ format
+
 function exportLar(model){
 
 	var v = model[0];
 	var fv = model[1];
 	var result = '';
 
+	//Exporting Matrix V
 	v.forEach(function(vertex){
 		if(vertex[2] !== undefined)
-			result += 'V ' + '[' + vertex[0] + ' ' + vertex[1] + ' '+  vertex[2] + ']' + '\n'; 
-		
-		else result += 'V ' + '[' + vertex[0] + ' ' + vertex[1] + ' 0'+ ']' + '\n';
+			result += 'v ' + '[' + vertex[0] + ' ' + vertex[1] + ' '+  vertex[2] + ']' + '\n'; 
+		else result += 'v ' + '[' + vertex[0] + ' ' + vertex[1] + ' 0'+ ']' + '\n';
 	});
 
+	//Exporting Matrix FV
 	fv.forEach(function(vertexArray){
 		var vertexIndex = vertexArray.length;
-		result += 'FV ';
+		result += 'fv [';
 		vertexArray.forEach(function(vertex,index){
 			if(vertexIndex-1 !== index)
 				result += vertex + ' '; 
-			else result += vertex + '\n';
+			else result += vertex + ']' + '\n';
 
 		});
 	});
@@ -27,7 +30,7 @@ function exportLar(model){
 
 
 
-
+//Example of use
 v = [[0,6],
  	[0,0],
  	[3,0],
