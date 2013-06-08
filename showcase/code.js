@@ -192,4 +192,4 @@ DRAW(hourPointer);
 moveHour();
 
 var model = STRUCT([table,crown,dial,closeDisk,glass,pointerBolt,alarmPointer,sign,sphere,screw,bell]);
-// DRAW(model);
+DRAW(model);
